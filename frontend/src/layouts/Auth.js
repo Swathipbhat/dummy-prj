@@ -14,6 +14,7 @@ import newcp from "views/auth/newcp.js";
 export default function Auth() {
   return (
     <>
+    <Route path="/auth/newcp" exact component={newcp} />
       <Navbar transparent />
       <main>
         <section className="relative w-full h-full py-40 min-h-screen">
@@ -24,14 +25,19 @@ export default function Auth() {
                 "url(" + require("assets/img/register_bg_2.png").default + ")",
             }}
           ></div>
+          
           <Switch>
             <Route path="/auth/login" exact component={Login} />
-            <Route path="/auth/newcp" exact component={newcp} />
-            <Redirect from="/auth" to="/auth/newcp" />
+            
+            <Redirect from="/auth" to="/auth/newcp"/>
           </Switch>
+          
           <FooterSmall absolute />
         </section>
       </main>
+
+
+      
     </>
   );
 }
