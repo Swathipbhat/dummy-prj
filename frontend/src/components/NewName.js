@@ -7,7 +7,7 @@ class NewName extends Component {
                 <form onSubmit={this.props.handleSubmit}>
                     <input
                         type="text"
-                        name="newName"
+                        name="NewName"
                         value={this.props.value}
                         onChange={this.props.handleChange}
                         placeholder="New Name"
