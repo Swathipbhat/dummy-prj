@@ -7,24 +7,34 @@ class newcp extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      name: '',
-      email:"",
-      password:"",
-      loading: true
-    };
+      customer: {
+        name: props.name,
+        password: props.password,
+        email: props.email
+      }
+    }
     
 
-    this.handleChange = this.handleChange.bind(this);
+    this.handleNameChange = this.handleNameChange.bind(this);
+    this.handlepasswordChange = this.handlepasswordChange.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
-    this.handlepass = this.handlepass.bind(this);
+  
   }
 
-  handleChange(event) {
-    this.setState({ name: event.target.value });
+  handleNameChange(event) {
+    var customer        = this.state.customer;
+    customer.name  = event.target.value;
+
+    this.setState({ customer: customer });
   }
-  handlepass(event) {
-    this.setState({ pass: event.target.value });
+
+  handlepasswordChange(event) {
+    var customer      = this.state.customer;
+    customer.password = event.target.value;
+
+    this.setState({ customer: customer });
   }
+
 
 
   async handleSubmit(event) {
