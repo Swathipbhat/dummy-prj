@@ -17,7 +17,7 @@ class NewName extends Component {
                     <input
                       type="text"
                         name="newName"
-                        value={this.props.value}
+                        value={this.props.name}
                         onChange={this.props.handleChange}
                         placeholder="New Name"
                         autoFocus
@@ -46,11 +46,11 @@ class NewName extends Component {
                       Password
                     </label>
                     <input
+                    name='password'
                       type="password"
                       className="border-0 px-3 py-3 placeholder-blueGray-300 text-blueGray-600 bg-white rounded text-sm shadow focus:outline-none focus:ring w-full ease-linear transition-all duration-150"
                       placeholder="password"
-                      value={this.props.value}
-                      onChange={this.props.handlepass}
+                      
                     />
                   </div>
 

@@ -7,34 +7,20 @@ class newcp extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      customer: {
-        name: props.name,
-        password: props.password,
-        email: props.email
-      }
-    }
+      name: '',
+      name: [],
+      loading: true
+    };
     
 
-    this.handleNameChange = this.handleNameChange.bind(this);
-    this.handlepasswordChange = this.handlepasswordChange.bind(this);
+    this.handleChange = this.handleChange.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
+  }
+
+  handleChange(event) {
+    this.setState({ name: event.target.value });
+  }
   
-  }
-
-  handleNameChange(event) {
-    var customer        = this.state.customer;
-    customer.name  = event.target.value;
-
-    this.setState({ customer: customer });
-  }
-
-  handlepasswordChange(event) {
-    var customer      = this.state.customer;
-    customer.password = event.target.value;
-
-    this.setState({ customer: customer });
-  }
-
 
 
   async handleSubmit(event) {
@@ -45,11 +31,8 @@ class newcp extends Component {
     await fetch('/addname/' + this.state.name, {
       method: 'GET'
     });
-    await fetch('/password/' + this.state.name, {
-      method: 'GET'
-    });
     this.getNames()
-    this.getpass()
+    
   }
 
 
@@ -64,18 +47,7 @@ class newcp extends Component {
         })
       })
   }
-  getpass() {
-    fetch('/getpass/')
-      .then(response => response.json())
-      .then(json => {
-        this.setState({
-          password: '',
-          names: json,
-          loading: false
-        })
-      })
-  }
-
+  
   componentDidMount() {
     this.getNames();
   }
