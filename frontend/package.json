@@ -4,7 +4,7 @@
   "description": "Notus React - A free Tailwind CSS and React UI Kit and Admin by Creative Tim.",
   "repository": "https://github.com/creativetimofficial/notus-react",
   "license": "MIT",
-  "proxy":"http://localhost:5000",
+  "proxy": "http://localhost:5000",
   "dependencies": {
     "@fortawesome/fontawesome-free": "5.15.3",
     "@popperjs/core": "2.9.1",
@@ -16,6 +16,7 @@
     "postcss": "8.2.8",
     "react": "17.0.1",
     "react-dom": "17.0.1",
+    "react-images-uploading": "^3.1.6",
     "react-router": "5.2.0",
     "react-router-dom": "5.2.0",
     "react-scripts": "4.0.3",

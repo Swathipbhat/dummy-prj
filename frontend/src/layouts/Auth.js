@@ -10,11 +10,12 @@ import FooterSmall from "components/Footers/FooterSmall.js";
 
 import Login from "views/auth/Login.js";
 import newcp from "views/auth/newcp.js";
-
+import Register from "views/auth/Register.js";
 export default function Auth() {
+
   return (
     <>
-   
+   <Route path="/auth/Register" exact component={Register} />
       <Navbar transparent />
       <main>
       
@@ -71,6 +72,7 @@ export default function Auth() {
                 </div>
                   <div className="inline-flex items-center cursor-pointer">
             <Route path="/auth/newcp" exact component={newcp} />
+            
             </div>
 
           </div>

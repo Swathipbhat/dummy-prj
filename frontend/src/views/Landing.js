@@ -1,12 +1,21 @@
 import React from "react";
 import { Link } from "react-router-dom";
+import ImageUploading from "react-images-uploading";
 
 // components
 
 import Navbar from "components/Navbars/AuthNavbar.js";
 import Footer from "components/Footers/Footer.js";
 
+
 export default function Landing() {
+  const [images, setImages] = React.useState([]);
+  const maxNumber = 69;
+  const onChange = (imageList, addUpdateIndex) => {
+    // data for submit
+    console.log(imageList, addUpdateIndex);
+    setImages(imageList);
+  };
   return (
     <>
       <Navbar transparent />
@@ -93,7 +102,54 @@ export default function Landing() {
                   </div>
                 </div>
               </div>
-
+     <div className="w-full md:w-4/12 px-4 text-center">
+     <div className="relative flex flex-col min-w-0 break-words bg-white w-full mb-8 shadow-lg rounded-lg">
+                  <div className="px-4 py-5 flex-auto">
+                  <p className="mt-2 mb-4 text-blueGray-500">
+                     PLEASE UPLOAD YOUR IMAGE HERE
+                    </p>
+       <ImageUploading
+        multiple
+        value={images}
+        onChange={onChange}
+        maxNumber={maxNumber}
+        dataURLKey="data_url"
+      >
+        {({
+          imageList,
+          onImageUpload,
+          onImageRemoveAll,
+          onImageUpdate,
+          onImageRemove,
+          isDragging,
+          dragProps
+        }) => (
+          // write your building UI
+          <div className="upload__image-wrapper">
+            <button
+              style={isDragging ? { color: "red" } : null}
+              onClick={onImageUpload}
+              {...dragProps}
+            >
+              Click or Drop here &nbsp;&nbsp;
+            </button>
+            &nbsp;
+            <button onClick={onImageRemoveAll}>Remove all images</button>
+            {imageList.map((image, index) => (
+              <div key={index} className="image-item">
+                <img src={image.data_url} alt="" width="100" />
+                <div className="image-item__btn-wrapper">
+                  <button onClick={() => onImageUpdate(index)}>Update</button> &nbsp;&nbsp;
+                  <button onClick={() => onImageRemove(index)}>Remove</button>
+                </div>
+              </div>
+            ))}
+          </div>
+        )}
+      </ImageUploading>
+    </div>
+</div>
+</div>
               <div className="pt-6 w-full md:w-4/12 px-4 text-center">
                 <div className="relative flex flex-col min-w-0 break-words bg-white w-full mb-8 shadow-lg rounded-lg">
                   <div className="px-4 py-5 flex-auto">
@@ -188,6 +244,9 @@ export default function Landing() {
               ></polygon>
             </svg>
           </div>
+
+ 
+
 
           <div className="container mx-auto px-4">
             <div className="items-center flex flex-wrap">

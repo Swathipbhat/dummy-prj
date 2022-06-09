@@ -7,14 +7,17 @@ class newcp extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      name: '',
-      name: [],
-      loading: true
-    };
+            // step 2
+            id: this.props.match.params.id,
+            firstName: '',
+            lastName: '',
+            emailId: ''
+        }
     
 
     this.handleChange = this.handleChange.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
+
   }
 
   handleChange(event) {
